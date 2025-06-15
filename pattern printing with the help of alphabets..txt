@@ -1,0 +1,20 @@
+def print_rangoli(size):
+    import string
+    alphabets = string.ascii_lowercase
+
+    lines = []
+    for i in range(size):
+        left = '-'.join(alphabets[size-1:i:-1])  # decreasing part
+        center = alphabets[i]                   # middle character
+        right = '-'.join(alphabets[i+1:size])   # increasing part
+        line = (left + '-' + center + '-' + right).strip('-') if left or right else center
+        lines.append(line.center(4 * size - 3, '-'))
+
+    full_pattern = lines[::-1] + lines[1:]
+    for line in full_pattern:
+        print(line)
+      
+
+if __name__ == '__main__':
+    n = int(input())
+    print_rangoli(n)

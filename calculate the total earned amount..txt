@@ -1,0 +1,17 @@
+from collections import Counter
+
+# Read input
+X = int(input())
+shoe_sizes = list(map(int, input().split()))
+inventory = Counter(shoe_sizes)
+
+N = int(input())
+total_income = 0
+
+for _ in range(N):
+    size, price = map(int, input().split())
+    if inventory[size] > 0:
+        total_income += price
+        inventory[size] -= 1  # Decrease count after sale
+
+print(total_income)

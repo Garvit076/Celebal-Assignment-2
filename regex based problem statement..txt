@@ -1,0 +1,15 @@
+import re
+
+T = int(input())
+invalid_patterns = ['++', '**', '??', '+*', '*+', '?+', '+?', '*?', '??']
+
+for _ in range(T):
+    S = input()
+    if any(x in S for x in invalid_patterns):
+        print(False)
+    else:
+        try:
+            re.compile(S)
+            print(True)
+        except re.error:
+            print(False)

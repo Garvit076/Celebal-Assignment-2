@@ -1,0 +1,21 @@
+n = int(input())
+s = list(map(int, input().split()))
+N = int(input())
+
+for _ in range(N):
+    parts = input().split()
+    cmd = parts[0]
+
+    if cmd == 'pop':
+        if s:
+            s.pop(0)
+    elif cmd == 'remove':
+        val = int(parts[1])
+        if val in s:
+            s.remove(val)
+    elif cmd == 'discard':
+        val = int(parts[1])
+        if val in s:
+            s.remove(val)
+
+print(sum(s))
